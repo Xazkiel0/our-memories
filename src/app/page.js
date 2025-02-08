@@ -1,101 +1,144 @@
-import Image from "next/image";
+"use client"
+
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
+import { EffectCoverflow, Pagination, Navigation, Virtual, Controller } from 'swiper/modules'
+import Image from 'next/image';
+import { Manrope } from 'next/font/google'
+
+const manrope = Manrope({
+  weight: '400',
+  subsets: ['latin']
+})
+
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import 'swiper/css/effect-coverflow'
+import MemoSlide from '@/components/MemoSlide';
+import { useState } from 'react';
+import { SpotlightNewDemo } from '@/components/SpotlightNew';
+const slides = Array.from({ length: 10 }).map((el, index) => `Slide ${index + 1}`)
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [contSwiper, setContSwiper] = useState(null)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  const [isRelease, setIsRelease] = useState(false)
+
+  if (!isRelease)
+    return (
+      <div className="h-svh w-full">
+        <SpotlightNewDemo />
+      </div>
+    )
+
+  return (
+    <div className={("w-dvw h-dvh flex flex-col " + manrope.className)}>
+      <div className="heading flex justify-center">
+        <span className='font-bold text-2xl'>
+          Our Memories
+        </span>
+      </div>
+      <div className="h-full flex flex-col justify-center">
+        <div className="flex items-center">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            // loop={true}
+            onRealIndexChange={swiper => {
+              console.log("Active Slide:", swiper.activeIndex + 1)
+            }}
+            slidesPerView={1.4}
+            breakpoints={{
+              380: {
+                slidesPerView: 2
+              },
+              420: {
+                slidesPerView: 2.4,
+              },
+              680: {
+                slidesPerView: 3
+              },
+              1080: {
+                slidesPerView: 3.2,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 2.5,
+                }
+              }
+            }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 200,
+              modifier: 1.5,
+              slideShadows: false
+            }}
+            modules={[EffectCoverflow, Virtual, Controller]}
+            controller={{ control: contSwiper }}
+            className=''
+            virtual
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {slides.map((slideContent, index) => (
+              <SwiperSlide className='' virtualIndex={index} key={index} >
+                <MemoSlide
+                  src={`https://picsum.photos/680/768?random=${index}`}
+                  title={`coba${index}`}
+                  alt={`memo${index}`} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="flex items-center">
+
+          <Swiper
+            effect={'coverflow'}
+            onSwiper={setContSwiper}
+            grabCursor={true}
+            centeredSlides={true}
+            // loop={true}
+            slidesPerView={1.4}
+            breakpoints={{
+              380: {
+                slidesPerView: 2
+              },
+              420: {
+                slidesPerView: 2.4,
+              },
+              680: {
+                slidesPerView: 3
+              },
+              1080: {
+                slidesPerView: 3.2,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 2.5,
+                }
+              }
+            }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 200,
+              modifier: 1.5,
+              slideShadows: false
+            }}
+            modules={[EffectCoverflow, Virtual, Controller]}
+            className='w-full'
+            virtual
+          >
+            {slides.map((slideContent, index) => (
+              <SwiperSlide className='' virtualIndex={index} key={index} >
+                {slideContent}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 }
