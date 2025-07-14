@@ -7,15 +7,18 @@
     },
     {
       "id": 2,
-      "text": "2 Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      "user": "Main User",
+      "text": "What is going on here?"
     },
     {
       "id": 3,
-      "text": "3 Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      "user": "User 2",
+      "text": "Happy birthday! I've been planning this all week!"
     },
     {
       "id": 4,
-      "text": "4 Lorem ipsum dolor sit amet consectetur adipisicing elit."
+      "user": "User 2",
+      "text": "Now you can eat your cake and celebrate!"
     },
     {
       "id": 5,
