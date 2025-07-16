@@ -3,14 +3,9 @@ import { TypingAnimation } from "@/components/magicui/typing-animation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { useTheme } from "next-themes";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import StoriesJson from "@/story.json" assert { type: "json" };
 import { useStoryStore } from "@/store";
 import useSound from "use-sound";
@@ -21,7 +16,7 @@ import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { TextAnimate } from "@/components/magicui/text-animate";
-import { Italianno, Oooh_Baby } from 'next/font/google'
+import { Italianno } from 'next/font/google'
 
 
 

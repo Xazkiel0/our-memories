@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { SpotlightNewDemo } from "@/components/SpotlightNew";
 import DigitPassword from "@/components/DigitPassword";
 import { birthdayCountdown } from "@/lib/utils";
