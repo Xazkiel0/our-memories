@@ -23,7 +23,7 @@ const slides = Array.from({ length: 10 }).map(
 export default function Home() {
   const [contSwiper, setContSwiper] = useState(null);
 
-  const [isReleased, setIsReleased] = useState(false);
+  const [isReleased, setIsReleased] = useState(true);
 
   const [pinCorrect, setPinCorrect] = useState(false);
 

@@ -2,10 +2,11 @@
 import React from "react";
 import { Spotlight } from "./ui/spotlight-new";
 import { TextAnimate } from "./magicui/text-animate";
+import { IconCloud } from "./magicui/icon-cloud";
 
 export function SpotlightNewDemo({ children, isReleased }) {
   // const 
-  
+
   return (
     <div className="h-full w-full rounded-md flex md:items-center md:justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight />
@@ -35,17 +36,24 @@ const ComponentBeforeRelease = () => (
     </p>
   </>
 );
-const ComponentWhenReleased = () => (
-  <>
-    <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text py-1 text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-      Selamat Ulang Tahun, <br /> Melinda!
-    </h1>
-    <div className="mt-4 font-normal text-base text-neutral-300 max-w-7xl text-center mx-auto">
-      <TextAnimate by="word" animation="blurInUp" duration={1}>Halo Melinda!</TextAnimate>
-      <TextAnimate by="word" animation="blurInUp" delay={2} duration={2}>Selamat ulang tahun yaa!</TextAnimate>🎉🎂
-      <TextAnimate by="word" animation="blurInUp" delay={4} duration={5}>Semoga di umur yang baru ini, kamu semakin bahagia, sehat, dan sukses dalam segala hal yang kamu lakukan.</TextAnimate>
-      <TextAnimate by="word" animation="blurInUp" delay={9} duration={5}>Terima kasih atas semua kebaikannya dan selalu ada di saat aku terpuruk.</TextAnimate>
-      <TextAnimate by="word" animation="blurInUp" delay={14} duration={5}>Semoga selalu diberikan kemudahan dan kebahagiaan dalam hidupmu yaaa.</TextAnimate>
-    </div>
-  </>
-);
+const ComponentWhenReleased = () => {
+  const imagesCloud = Array.from({ length: 32 }).map((el, index) => `/gunut/${index + 1}.jpg`);
+
+  console.log(imagesCloud);
+
+
+  return (
+    <>
+      <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text py-1 text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
+        Selamat Ulang Tahun, <br /> Melinda!
+      </h1>
+      <div className="mt-4 font-normal text-base text-neutral-300 max-w-7xl text-center mx-auto">
+        <TextAnimate by="word" animation="blurInUp" duration={1}>Halo Melinda!</TextAnimate>
+        <TextAnimate by="word" animation="blurInUp" delay={2} duration={2}>Selamat ulang tahun yaa!</TextAnimate>🎉🎂
+      </div>
+      <div className="flex justify-center">
+        <IconCloud images={imagesCloud} />
+      </div>
+    </>
+  )
+};
