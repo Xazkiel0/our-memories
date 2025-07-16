@@ -33,7 +33,6 @@ const envelopeFont = Italianno({
 
 const Intro = () => {
   const { theme, setTheme } = useTheme();
-  const [tasks, setTasks] = useState([]);
   const [giftime, setGiftime] = useState(false);
   const [sharkGif, setSharkGif] = useState(false);
   const [cakeGif, setCakeGif] = useState(false);
@@ -102,6 +101,9 @@ const Intro = () => {
     if (storyIndex < stories.length - 1) {
       setStoryIndex((prev) => prev + 1);
       setCurrStory(stories[storyIndex]);
+    } else if (storyIndex == stories.length - 1) {
+      setStoryIndex((prev) => prev + 1);
+
     }
   };
 
@@ -138,12 +140,12 @@ const Intro = () => {
           open={openEnvelope}
           onOpenChange={setOpenEnvelope}
         >
-          <DialogContent className="sm:max-w-[825px] max-h-[90dvh] overflow-y-scroll" style={{
+          <DialogContent className="sm:max-w-[825px] max-h-[90dvh] overflow-y-scroll bg-[url('/paper.jpg')] bg-repeat-space" style={{
             scrollbarWidth: "thin",
             scrollbarColor: "rgba(255, 255, 255, 0.1) transparent"
           }}>
             <DialogHeader>
-              <DialogTitle className={`text-center text-3xl font-bold ${envelopeFont.className}`}>To My Love</DialogTitle>
+              <DialogTitle className={`text-center text-3xl font-bold ${envelopeFont.className}`}>To My Love Melinda (Unutt)</DialogTitle>
               <DialogDescription className={`text-3xl font-semibold ${envelopeFont.className}`}>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
                   Hari ini adalah hari yang begitu berarti karena dunia pernah menghadiahkan seseorang sebaik dan setulus dirimu untuk hadir di dunia ini. Dan aku adalah orang yang paling beruntung karena bisa menemani langkahmu, walau tidak selalu seperti yang kamu inginkan.
@@ -152,22 +154,22 @@ const Intro = () => {
                   Di hari ulang tahunmu ini, aku ingin kamu tahu satu hal yang paling penting:aku sayang bukan hanya karena siapa dirimu, tapi juga karena siapa aku saat bersamamu.
                 </TextAnimate>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
-                  Aku sadar, selama ini mungkin aku tidak selalu menjadi pasangan yang ideal. Ada banyak hal yang aku belum bisa penuhi. Kadang caraku mencintaimu masih belum cukup memuaskan keinginganmu. Kadang aku terlalu sibuk mengatasi diriku sendiri sampai lupa bahwa kamu juga perlu ditenangkan. Maaf jika ada sikapku, kata-kataku, atau bahkan diamku yang membuatmu jengkel, lelah, atau bertanya-tanya.
+                  Aku sadar, selama ini mungkin aku tidak selalu seperti yang kamu harapkan untuk menjadi pasangan yang ideal. Ada banyak hal yang aku belum bisa penuhi. Kadang caraku mencintaimu masih belum cukup memuaskan keinginganmu. Kadang aku terlalu sibuk mengatasi diriku sendiri sampai lupa bahwa kamu juga perlu ditenangkan. Maaf jika ada sikapku, kata-kataku, atau bahkan diamku yang membuatmu jengkel, lelah, atau bertanya-tanya.
                 </TextAnimate>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
                   Tapi percayalah, aku sedang berusaha. Aku sedang berjuang satu per satu menghadapi semua kekacauan yang ada di dalam diriku, agar suatu hari aku bisa berjuang demi dirimu dan mungkin bukan hanya kamu akan tetapi keluargaku nantinya. Bukan hanya untuk hari ini, tapi hari-hari yang akan kita lalui.
                 </TextAnimate>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
-                  Terima kasih karena sudah bertahan.Terima kasih karena terus memilihku, walau aku masih penuh kekurangan dan belum sepenuhnya selesai dengan masalahku.Terima kasih karena kamu tetap jadi tempat pulang.
+                  Terima kasih karena sudah bertahan. Terima kasih karena terus memilihku, walau aku masih penuh kekurangan dan belum sepenuhnya selesai dengan masalahku.Terima kasih karena kamu tetap jadi tempat pulang.
                 </TextAnimate>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
-                  Hari ini, aku tidak hanya merayakan ulang tahunmu.Aku juga merayakan harapan harapan bahwa ke depan, kita bisa lebih baik lagi, untukmu, dan demi kita.
+                  Hari ini, aku tidak hanya merayakan ulang tahunmu. Aku juga merayakan harapan harapan bahwa ke depan, kita bisa lebih baik lagi, untukmu, dan demi kita.
                 </TextAnimate>
                 <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-20" duration={2} as={"p"}>
                   Selamat ulang tahun, Unut.
                 </TextAnimate>
-                <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={10} as={"p"} once>
-                  Semoga bahagia selalu berpihak padamu dan jika suatu saat tidak seperti harapanmu, aku ingin kamu sukses dengan masa depan yang kamu inginkan. Terima Kasih banyak yaaa dan maaf selama ini aku sibuk juga karna ngerjain hadiah ini karena aku perbarui terus tampilan sama animasinya.
+                <TextAnimate animation="blurInUp" by="word" className="text-left tracking-wider mt-6" duration={14} as={"p"} once>
+                  Semoga kamu mendapatkan kebahagiaanmu dan jika suatu saat ada kondisi yang tidak kamu harapkan, aku ingin kamu sukses dengan masa depan yang kamu capai dengan semangat dan kerja kerasmu. Terima Kasih banyak yaaa dan maaf selama ini aku sibuk juga karna ngerjain hadiah ini karena aku perbarui terus tampilan sama animasinya.
                 </TextAnimate>
               </DialogDescription>
             </DialogHeader>
@@ -201,7 +203,7 @@ const Intro = () => {
                 )}
               </AnimatePresence>
               <AnimatePresence>
-                {cakeGif && (
+                {(cakeGif && !openEnvelope) && (
                   <motion.div
                     className={`relative`}
                     initial={{ x: 800, opacity: 0 }}
@@ -218,6 +220,16 @@ const Intro = () => {
                       whileHover={{ scale: 1.2, rotateX: 0, rotateY: -5 }}
                       onClick={() => setOpenEnvelope(true)}
                     />
+                    <motion.img
+                      src="/knife.png"
+                      className="h-[90px] object-contain absolute bottom-24 sm:bottom-0 left-[21%]"
+                      initial={{ scale: 1, rotateZ: -70 }}
+                      whileHover={{ scale: 1.2 }}
+                      onClick={() => {
+                        setGiftime(false);
+                        setTaskIsCompleted(currStory?.id);
+                      }}
+                    />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -231,25 +243,27 @@ const Intro = () => {
                 {currStory?.text}
               </TypingAnimation>
               <div className="flex flex-row justify-end">
-                <Button onClick={handleNextStory} disabled={(() => {
-                  let onTask = getTaskById(currStory?.id)
-                  let taskNotCompleted = true
+                {storyIndex <= stories.length && (
+                  <Button onClick={handleNextStory} disabled={(() => {
+                    let onTask = getTaskById(currStory?.id)
+                    let taskNotCompleted = true
 
-                  if (onTask) {
-                    taskNotCompleted = !getTaskIsCompleted(currStory?.id)
-                    if (typing || taskNotCompleted) {
-                      return true
+                    if (onTask) {
+                      taskNotCompleted = !getTaskIsCompleted(currStory?.id)
+                      if (typing || taskNotCompleted) {
+                        return true
+                      } else {
+                        return false
+                      }
                     } else {
-                      return false
+                      if (typing) return true
                     }
-                  } else {
-                    if (typing) return true
-                  }
 
-                  return false
-                })()}>
-                  Next
-                </Button>
+                    return false
+                  })()}>
+                    Next
+                  </Button>
+                )}
                 {typing && (
                   <Button onClick={() => setTyping(false)} className="ml-2">
                     Skip

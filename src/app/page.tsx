@@ -25,7 +25,7 @@ export default function Home() {
 
   const [isReleased, setIsReleased] = useState(false);
 
-  const [pinCorrect, setPinCorrect] = useState(true);
+  const [pinCorrect, setPinCorrect] = useState(false);
 
   useEffect(() => {
     const releaseDate = new Date(2025, 6, 17);

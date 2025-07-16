@@ -41,7 +41,8 @@ export const useStoryStore = create<StoryStoreState>((set, get) => ({
     },
     {
       id: 4,
-      text: "Take the cake",
+      // saya sudah membuatkan kue, sekarang kamu bisa coba kuenya
+      text: "I have made the cake, now can you try the cake",
       completed: false,
       actions: [
         {
