@@ -1,0 +1,32 @@
+{
+  "stories": [
+    {
+      "id": 1,
+      "user": "Main User",
+      "text": "Why is it so dark in here?"
+    },
+    {
+      "id": 2,
+      "user": "Main User",
+      "text": "What is going on here?"
+    },
+    {
+      "id": 3,
+      "user": "User 2",
+      "text": "Happy birthday! I've been planning this all week!"
+    },
+    {
+      "id": 4,
+      "user": "User 2",
+      "text": "Now you can eat your cake and celebrate!"
+    },
+    {
+      "id": 5,
+      "text": "5 Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    {
+      "id": 6,
+      "text": "6 Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    }
+  ]
+}
